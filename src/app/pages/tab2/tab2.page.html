@@ -5,9 +5,9 @@
     </ion-title>
   </ion-toolbar>
 
-  <ion-segment scrollable="true" mode="md" value="pizza" color="primary">
+  <ion-segment (ionChange)="cambioCategoria($event)" scrollable="true" mode="md" value="pizza" color="primary">
 
-    <ion-segment-button mode="md" [value]="categoria" *ngFor="let categoria of categorias">
+    <ion-segment-button c mode="md" checked [value]="categoria" *ngFor="let categoria of categorias">
       <ion-label class="ion-text-capitalize"> {{ categoria }} </ion-label>
     </ion-segment-button>
 
@@ -18,6 +18,6 @@
 
 <ion-content color="dark">
 
-
+  <app-noticias [noticias]="noticias"></app-noticias>
 
 </ion-content>
