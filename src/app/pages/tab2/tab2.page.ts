@@ -23,17 +23,17 @@ export class Tab2Page {
   ionViewWillEnter() {
     this.segment.value = this.categorias[0];
 
-    this.carregarNoticias(this.categorias[0]);
+    this.cargarNoticias(this.categorias[0]);
 
   }
 
   cambioCategoria(event) {
     this.noticias = [];
     console.log('event: ', event.detail.value);
-    this.carregarNoticias(event.detail.value);
+    this.cargarNoticias(event.detail.value);
   }
 
-  carregarNoticias(categoria: string) {
+  cargarNoticias(categoria: string, event?) {
 
     console.log('this.segment.value: ', this.segment.value);
     this.noticiasService.getTopHeadLinesCategoria(categoria)
@@ -42,6 +42,14 @@ export class Tab2Page {
         this.noticias.push(...resp.articles);
       });
 
+    if (event) {
+      event.target.complete();
+    }
+
+  }
+
+  loadData(event) {
+    this.cargarNoticias(this.segment.value, event);
   }
 
 }
