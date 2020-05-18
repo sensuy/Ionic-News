@@ -2,7 +2,7 @@
 
   <ion-card-header>
     <ion-card-subtitle>
-      <span class="text-primary"> {{ indice + 1 }}. {{ enFavoritos }} </span>
+      <span class="text-primary"> {{ indice + 1 }}.</span>
       <span class="noticia-source-name"> {{ noticia.source.name }}</span>
 
       <div class="noticia-more">
@@ -14,7 +14,8 @@
     </ion-card-subtitle>
     <ion-card-title (click)="abrirNoticia()"> {{ noticia.title }} </ion-card-title>
   </ion-card-header>
-  <ion-img *ngIf="noticia.urlToImage" (click)="abrirNoticia()" [src]="noticia.urlToImage"></ion-img>
+  <ion-img *ngIf="noticia.urlToImage" class="animated fadeIn fast" (click)="abrirNoticia()" [src]="noticia.urlToImage">
+  </ion-img>
 
   <ion-card-content>
     <p>
